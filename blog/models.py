@@ -7,8 +7,19 @@ class Blog(models.Model):
     body = models.TextField()
     image = models.ImageField(upload_to='images/')
 
+#Function to show tile of blogpost in list on admin panel
+    def __str__(self):
+        return self.title
+#Function to show Summary of Blogpost
+    def summary(self):
+        return self.body[:150]
 
-#Add Blogs app to settings
+    def pub_date_pretty(self):
+        return self.pub_date.strftime('%b %e %Y')
+        #strftime.org for more date time formats.
+
+
+
 
 
 
